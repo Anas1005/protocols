@@ -1,113 +1,178 @@
-import Image from "next/image";
+import TechnicalTerms from '@/components/Terms';
+import React from 'react';
 
-export default function Home() {
+const CommunicationProtocolsTable = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className="overflow-x-auto flex flex-col space-y-6">
+      <table className="table-auto w-full border-collapse border border-gray-200">
+        <thead>
+          <tr className="">
+            <th className="border border-gray-400 px-4 py-2">Protocol</th>
+            <th className="border border-gray-400 px-4 py-2">Features</th>
+            <th className="border border-gray-400 px-4 py-2">Working</th>
+            <th className="border border-gray-400 px-4 py-2">Advantages</th>
+            <th className="border border-gray-400 px-4 py-2">Disadvantages</th>
+            <th className="border border-gray-400 px-4 py-2">Application</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="border border-gray-400 px-4 py-2">I2C (Inter-Integrated Circuit)</td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Two-wire serial communication protocol.</li>
+                <li>Supports multiple slave devices connected to a single master.</li>
+                <li>Allows for both synchronous and asynchronous data transmission.</li>
+                <li>Operates at speeds up to 400 kHz (standard mode) or 3.4 MHz (fast mode).</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Master-slave architecture where the master initiates communication with the slave devices.</li>
+                <li>Uses two lines: SDA (serial data) and SCL (serial clock).</li>
+                <li>Data transmission involves the master sending a start condition, followed by the address of the slave, and then the data.</li>
+                <li>Includes acknowledgment mechanism for reliable data transfer.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Simple hardware requirements.</li>
+                <li>Supports multiple devices on the same bus.</li>
+                <li>Supports multi-master operation.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">Limited distance due to the capacitance of the bus.</td>
+            <td className="border border-gray-400 px-4 py-2">Used in sensors, EEPROMs, real-time clocks (RTC), and other low-speed peripheral devices.</td>
+          </tr>
+          <tr>
+            <td className="border border-gray-400 px-4 py-2">SPI (Serial Peripheral Interface)</td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Synchronous serial communication protocol.</li>
+                <li>Supports full-duplex communication (simultaneous data transmission and reception).</li>
+                <li>Requires more pins compared to I2C.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Typically operates in a master-slave configuration.</li>
+                <li>Uses four lines: MISO (Master In Slave Out), MOSI (Master Out Slave In), SCK (Serial Clock), and SS (Slave Select).</li>
+                <li>Data transmission involves the master sending clock pulses while simultaneously sending/receiving data.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>High-speed data transfer.</li>
+                <li>Suitable for short-distance communication.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">Requires more pins.</td>
+            <td className="border border-gray-400 px-4 py-2">Ideal for interfacing with sensors, data converters, and flash memories.</td>
+          </tr>
+          <tr>
+            <td className="border border-gray-400 px-4 py-2">PCI (Peripheral Component Interconnect)</td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Parallel bus architecture for connecting hardware devices to a computer motherboard.</li>
+                <li>Supports Plug and Play functionality.</li>
+                <li>Initially designed for desktop computers.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Utilizes a shared parallel bus architecture.</li>
+                <li>Data transfer occurs between devices connected to the bus and the CPU.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>High data transfer rates.</li>
+                <li>Suitable for high-performance computing tasks.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">Limited scalability. Not hot-pluggable.</td>
+            <td className="border border-gray-400 px-4 py-2">Commonly used in desktop computers for connecting expansion cards like graphics cards, network adapters, and storage controllers.</td>
+          </tr>
+          <tr>
+            <td className="border border-gray-400 px-4 py-2">PCI Express</td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>High-speed serial communication protocol.</li>
+                <li>Successor to PCI with improved performance and scalability.</li>
+                <li>Utilizes point-to-point connections.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Employs serial lanes for data transfer.</li>
+                <li>Supports multiple lanes (x1, x4, x8, x16) for varying bandwidth requirements.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>High scalability and bandwidth.</li>
+                <li>Lower latency compared to PCI.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">Higher cost compared to PCI.</td>
+            <td className="border border-gray-400 px-4 py-2">Widely used in modern desktops, servers, and embedded systems for connecting graphics cards, storage devices, and high-speed network adapters.</td>
+          </tr>
+          <tr>
+            <td className="border border-gray-400 px-4 py-2">CAN (Controller Area Network)</td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Serial communication protocol designed for robust and reliable communication in automotive and industrial applications.</li>
+                <li>Supports multi-master and multi-drop configurations.</li>
+                <li>Prioritizes real-time performance and fault tolerance.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Uses differential signaling for noise immunity.</li>
+                <li>Data transmission occurs in frames with error detection and acknowledgment mechanisms.</li>
+                <li>Includes arbitration mechanism for priority-based message transmission.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>High reliability in noisy environments.</li>
+                <li>Supports long-distance communication.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">Lower data transfer rates compared to other protocols.</td>
+            <td className="border border-gray-400 px-4 py-2">Used in automotive systems (e.g., engine control units, airbag systems), industrial automation, and medical devices.</td>
+          </tr>
+          <tr>
+            <td className="border border-gray-400 px-4 py-2">USB (Universal Serial Bus)</td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Serial bus standard for connecting devices to computers and other peripherals.</li>
+                <li>Supports hot-plugging and plug-and-play functionality.</li>
+                <li>Offers multiple transfer modes like bulk, isochronous, and interrupt.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Host-centric architecture with devices acting as slaves.</li>
+                <li>Uses differential signaling for noise immunity.</li>
+                <li>Data transmission involves packets with error detection and correction.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+              <ul className="list-disc list-inside">
+                <li>Wide adoption and compatibility across devices.</li>
+                <li>High data transfer rates with USB 3.0 and later versions.</li>
+              </ul>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">Limited cable length for high-speed communication.</td>
+            <td className="border border-gray-400 px-4 py-2">Used in various devices including external storage drives, keyboards, mice, printers, and smartphones for data transfer and peripheral connectivity.</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <TechnicalTerms/>
+    </div>
   );
-}
+};
+
+export default CommunicationProtocolsTable;
